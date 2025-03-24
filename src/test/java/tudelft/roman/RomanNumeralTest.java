@@ -16,8 +16,8 @@ public class RomanNumeralTest {
     @Test
     public void numberWithManyDigits() {
         RomanNumeral roman = new RomanNumeral();
-        int result = roman.convert("VIII");
-        Assertions.assertEquals(8, result);
+        int result = roman.convert("XVIII");
+        Assertions.assertEquals(18, result);
     }
 
     @Test
@@ -30,7 +30,7 @@ public class RomanNumeralTest {
     @Test
     public void numberWithAndWithoutSubtractiveNotation() {
         RomanNumeral roman = new RomanNumeral();
-        int result = roman.convert("XLIV");
-        Assertions.assertEquals(44, result);
+        int result = roman.convert("XLII");
+        Assertions.assertEquals(42, result);
     }
 }
