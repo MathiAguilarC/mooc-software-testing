@@ -35,4 +35,30 @@ public class ChocolateBagsTest {
         int result = new ChocolateBags().calculate(small, big, total);
         Assertions.assertEquals(expectedResult, result);
     }
+
+    //necesidad de barras grandes y pequeñas
+    @ParameterizedTest(name = "small={0}, big={1}, total={2}, result={3}")
+    @CsvSource({
+            "5, 3, 17, 2",  // small = 5, big = 3, total = 17, esperamos 2 barras pequeñas
+            "10, 4, 23, 3"  // small = 10, big = 4, total = 23, esperamos 3 barras pequeñas
+    })
+    public void needBigAndSmallBarsParameterized(int small, int big, int total, int expected) {
+        ChocolateBags cb = new ChocolateBags();
+        int result = cb.calculate(small, big, total);
+        Assertions.assertEquals(expected, result);
+    }
+
+    //solo barras pequeñas
+    @ParameterizedTest(name = "small={0}, big={1}, total={2}, result={3}")
+    @CsvSource({
+            "4, 2, 3, 3",   // small = 4, big = 2, total = 3, esperamos 3 barras pequeñas
+            "6, 3, 4, 4"    // small = 6, big = 3, total = 4, esperamos 4 barras pequeñas
+    })
+    public void onlySmallBarsParameterized(int small, int big, int total, int expected) {
+        ChocolateBags cb = new ChocolateBags();
+        int result = cb.calculate(small, big, total);
+        Assertions.assertEquals(expected, result);
+    }
+
+
 }
